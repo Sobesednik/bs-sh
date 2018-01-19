@@ -12,30 +12,38 @@ const assertFound = (str, shaken) => {
     }
 }
 const assertNotFound = (str, shaken) => {
-    if (str.indexOf(shaken) !== -1) {
-        throw new Error(`${shaken} found`);
+    const lines = str.split('\n');
+    const i = lines.indexOf(shaken);
+    const found =  i !== -1;
+    if (found) {
+        const err = new Error(`${shaken} found at line ${i}`)
+        err.i = i;
+        throw new Error(err);
     }
 }
 
 const buildTestSuite = {
     context,
-    'should be a function'() {
-        assert.equal(typeof build, 'function')
+    'import-B': {
+        async 'should not shake off the function'({ files: { importB } }) {
+            const res = await build([importB])
+            assertNotFound(res, bRemoved);
+        },
+        async 'should shake off default'({ files: { importB } }) {
+            const res = await build([importB])
+            assertFound(res, defaultRemoved);
+        },
+        async 'should shake off other methods'({ files: { importB } }) {
+            const res = await build([importB])
+            assertFound(res, cRemoved);
+        },
     },
-    async 'should shake off default'({ files: { importB } }) {
-        const res = await build([importB])
-        assertFound(res, defaultRemoved);
-    },
-    async 'should shake off other methods'({ files: { importB } }) {
-        const res = await build([importB])
-        assertFound(res, cRemoved);
-    },
-    default: {
+    'import-default': {
         async 'should not shake off default'({ files: { importDefault } }) {
             const res = await build([importDefault])
             assertNotFound(res, defaultRemoved);
         },
-        async 'should not shake off other methods'({ files: { importDefault } }) {
+        async 'should shake off other methods'({ files: { importDefault } }) {
             const res = await build([importDefault])
             assertFound(res, bRemoved);
         },
