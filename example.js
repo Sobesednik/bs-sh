@@ -1,0 +1,3 @@
+const bsSh = require('./')
+
+bsSh()

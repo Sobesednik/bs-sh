@@ -1,0 +1,24 @@
+{
+  "name": "bs-sh",
+  "version": "0.1.0",
+  "description": "test browserify babelify common-shakeify default imports",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "zoroaster test/spec",
+    "test-watch": "zoroaster test/spec --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Sobesednik/bs-sh.git"
+  },
+  "keywords": ["bs-sh"],
+  "author": "z-vr <anton@sobes.io>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Sobesednik/bs-sh/issues"
+  },
+  "homepage": "https://github.com/Sobesednik/bs-sh#readme",
+  "devDependencies": {
+    "zoroaster": "0.4.6"
+  }
+}
