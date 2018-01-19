@@ -5,7 +5,8 @@
   "main": "src/index.js",
   "scripts": {
     "test": "zoroaster test/spec",
-    "test-watch": "zoroaster test/spec --watch"
+    "test-watch": "zoroaster test/spec --watch",
+    "build": "node example"
   },
   "repository": {
     "type": "git",
@@ -28,6 +29,7 @@
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
     "babelify": "^8.0.0",
     "browserify": "^15.2.0",
-    "common-shakeify": "^0.4.5"
+    "common-shakeify": "^0.4.5",
+    "wrote": "^1.4.0"
   }
 }
