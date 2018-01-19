@@ -1,0 +1,3 @@
+import testFunctionA from '.'
+
+testFunctionA()

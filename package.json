@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/Sobesednik/bs-sh#readme",
   "devDependencies": {
-    "zoroaster": "0.4.6"
+    "zoroaster": "^0.5.3"
   },
   "dependencies": {
     "babel-core": "^6.26.0",

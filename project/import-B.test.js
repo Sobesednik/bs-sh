@@ -1,0 +1,3 @@
+import { testFunctionB } from '.'
+
+testFunctionB()
